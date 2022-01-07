@@ -1,4 +1,6 @@
 import { Component, ComponentInterface, h } from '@stencil/core';
+import '@awesome-elements/layout';
+import '@awesome-elements/markdown';
 
 @Component({
   tag: 'app-root',
@@ -16,7 +18,12 @@ export class AppRoot implements ComponentInterface {
         <main>
           <stencil-router historyType="hash">
             <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url="/" component="app-home" exact={true} />
+              <stencil-route url="/" exact={true}>
+                <app-home />
+              </stencil-route>
+              <stencil-route url="/docs" exact={true}>
+                <app-docs />
+              </stencil-route>
             </stencil-route-switch>
           </stencil-router>
         </main>

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+#contents {
+  background: hsl(180, 100%, 97%);
+}
+
+#detail {
+  background: hsl(33, 100%, 88%);
+}

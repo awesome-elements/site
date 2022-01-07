@@ -15,9 +15,14 @@
     "@stencil/core": "^2.7.0",
     "@stencil/router": "^1.0.1",
     "@types/jest": "^26.0.24",
+    "@types/marked": "^4.0.1",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "puppeteer": "^10.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@awesome-elements/layout": "^0.1.15",
+    "@awesome-elements/markdown": "^0.1.1"
+  }
 }

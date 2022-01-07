@@ -7,6 +7,8 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 })
 export class AppHome implements ComponentInterface {
   render() {
-    return <Host>Home Page</Host>;
+    return <Host>
+      <a href="/#/docs">Docs</a>
+    </Host>;
   }
 }

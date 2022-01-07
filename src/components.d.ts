@@ -5,28 +5,30 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil/router";
+import { TreeNode } from "./components/app-tree-view/app-tree-view";
 export namespace Components {
-    interface AppHome {
+    interface AppDocs {
     }
-    interface AppProfile {
-        "match": MatchResults;
+    interface AppHome {
     }
     interface AppRoot {
     }
+    interface AppTreeView {
+        "data": TreeNode;
+    }
 }
 declare global {
+    interface HTMLAppDocsElement extends Components.AppDocs, HTMLStencilElement {
+    }
+    var HTMLAppDocsElement: {
+        prototype: HTMLAppDocsElement;
+        new (): HTMLAppDocsElement;
+    };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
-    };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
-    }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -34,33 +36,45 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLAppTreeViewElement extends Components.AppTreeView, HTMLStencilElement {
+    }
+    var HTMLAppTreeViewElement: {
+        prototype: HTMLAppTreeViewElement;
+        new (): HTMLAppTreeViewElement;
+    };
     interface HTMLElementTagNameMap {
+        "app-docs": HTMLAppDocsElement;
         "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "app-tree-view": HTMLAppTreeViewElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
+    interface AppDocs {
     }
-    interface AppProfile {
-        "match"?: MatchResults;
+    interface AppHome {
     }
     interface AppRoot {
     }
+    interface AppTreeView {
+        "data"?: TreeNode;
+        "onItemClicked"?: (event: CustomEvent<TreeNode>) => void;
+    }
     interface IntrinsicElements {
+        "app-docs": AppDocs;
         "app-home": AppHome;
-        "app-profile": AppProfile;
         "app-root": AppRoot;
+        "app-tree-view": AppTreeView;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-docs": LocalJSX.AppDocs & JSXBase.HTMLAttributes<HTMLAppDocsElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "app-tree-view": LocalJSX.AppTreeView & JSXBase.HTMLAttributes<HTMLAppTreeViewElement>;
         }
     }
 }
